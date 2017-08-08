@@ -1,6 +1,8 @@
+%define debug_package %{nil}
+
 Name:           vidcutter
 Version:        4.0.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        The simplest + fastest video cutter & joiner
 License:        GPLv3+
 Url:            http://vidcutter.ozmartians.com
@@ -70,6 +72,9 @@ fi
 %{_datadir}/pixmaps/%{name}.svg
 
 %changelog
+* Tue Aug 08 2017 Martin Gansser <martinkg@fedoraproject.org> - 4.0.0-3
+- Add %%define debug_package %%{nil} for f27 build
+
 * Mon Aug 07 2017 Martin Gansser <martinkg@fedoraproject.org> - 4.0.0-2
 - Add BR desktop-file-utils
 - Add RR hicolor-icon-theme
