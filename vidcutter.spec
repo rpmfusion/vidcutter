@@ -1,5 +1,3 @@
-%define debug_package %{nil}
-
 Name:           vidcutter
 Version:        4.0.5
 Release:        1%{?dist}
@@ -26,6 +24,8 @@ the job done using tried and true tech in its arsenal via mpv and FFmpeg.
 %prep
 %setup -q
 sed -i "s/pypi/rpm/" vidcutter/__init__.py
+# Fix error: Empty %%files file debugsourcefiles.list
+sed -i "s/-g0/-g/" setup.py
 
 # E: wrong-script-interpreter
 sed -i -e 's|#!/usr/bin/env python3|#!/usr/bin/python3|g' vidcutter/*.py
@@ -74,7 +74,7 @@ fi
 %changelog
 * Sat Nov 04 2017 Martin Gansser <martinkg@fedoraproject.org> - 4.0.5-1
 - Update to 4.0.5
-- Add %%define debug_package %%{nil} for f27 build
+- Set extra_compile_args= to -g to fix: Empty %%files file debugsourcefiles.list
 
 * Mon Aug 07 2017 Martin Gansser <martinkg@fedoraproject.org> - 4.0.0-2
 - Add BR desktop-file-utils
