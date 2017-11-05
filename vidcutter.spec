@@ -1,6 +1,6 @@
 Name:           vidcutter
 Version:        4.0.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        The simplest + fastest video cutter & joiner
 License:        GPLv3+
 Url:            http://vidcutter.ozmartians.com
@@ -46,7 +46,6 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
 
 %post
 touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
-/usr/bin/update-desktop-database &> /dev/null || :
 
 %postun
 /sbin/ldconfig
@@ -54,7 +53,6 @@ if [ $1 -eq 0 ] ; then
   touch --no-create %{_datadir}/icons/hicolor &>/dev/null
   /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 fi
-/usr/bin/update-desktop-database &> /dev/null || :
 
 %posttrans
 /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
@@ -72,6 +70,9 @@ fi
 %{_datadir}/pixmaps/%{name}.svg
 
 %changelog
+* Sun Nov 05 2017 Leigh Scott <leigh123linux@googlemail.com> - 4.0.5-2
+- Remove mime scriptlets as they are obsolete in f25 and greater
+
 * Sat Nov 04 2017 Martin Gansser <martinkg@fedoraproject.org> - 4.0.5-1
 - Update to 4.0.5
 - Set extra_compile_args= to -g to fix: Empty %%files file debugsourcefiles.list
@@ -79,7 +80,6 @@ fi
 * Mon Aug 07 2017 Martin Gansser <martinkg@fedoraproject.org> - 4.0.0-2
 - Add BR desktop-file-utils
 - Add RR hicolor-icon-theme
-- Remove mime scriptlets as they are obsolete in f25 and greater
 
 * Mon Aug 07 2017 Martin Gansser <martinkg@fedoraproject.org> - 4.0.0-1
 - Initial build
