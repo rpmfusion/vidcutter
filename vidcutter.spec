@@ -1,6 +1,8 @@
+%global unique_name com.ozmartians
+
 Name:           vidcutter
-Version:        4.0.5
-Release:        2%{?dist}
+Version:        5.0.5
+Release:        1%{?dist}
 Summary:        The simplest + fastest video cutter & joiner
 License:        GPLv3+
 Url:            http://vidcutter.ozmartians.com
@@ -63,13 +65,17 @@ fi
 %{_bindir}/%{name}
 %{python3_sitearch}/%{name}
 %{python3_sitearch}/vidcutter-*-py?.?.egg-info
-%{_datadir}/applications/%{name}.desktop
+%{_datadir}/applications/%{unique_name}.VidCutter.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
 %{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
 %{_datadir}/mime/packages/x-vidcutter.xml
+%{_datadir}/appdata/%{unique_name}.VidCutter.appdata.xml
 %{_datadir}/pixmaps/%{name}.svg
 
 %changelog
+* Sun Dec 03 2017 Martin Gansser <martinkg@fedoraproject.org> - 5.0.5-1
+- Update to 5.0.5
+
 * Sun Nov 05 2017 Leigh Scott <leigh123linux@googlemail.com> - 4.0.5-2
 - Remove mime scriptlets as they are obsolete in f25 and greater
 
