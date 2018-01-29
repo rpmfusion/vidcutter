@@ -2,7 +2,7 @@
 
 Name:           vidcutter
 Version:        5.0.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        The simplest + fastest video cutter & joiner
 License:        GPLv3+
 Url:            http://vidcutter.ozmartians.com
@@ -12,11 +12,13 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 BuildRequires:  mpv-libs-devel
 BuildRequires:  desktop-file-utils
+
 Requires:       python3-qt5
 Requires:       ffmpeg
 Requires:       python3-pyopengl
 Requires:       mediainfo
 Requires:       hicolor-icon-theme
+Requires:       mpv-libs
 
 %description
 The simplest & sexiest tool for cutting and joining your videos without the
@@ -73,6 +75,9 @@ fi
 %{_datadir}/pixmaps/%{name}.svg
 
 %changelog
+* Mon Jan 29 2018 Martin Gansser <martinkg@fedoraproject.org> - 5.0.5-2
+- Add RR mpv-libs
+
 * Sun Dec 03 2017 Martin Gansser <martinkg@fedoraproject.org> - 5.0.5-1
 - Update to 5.0.5
 
