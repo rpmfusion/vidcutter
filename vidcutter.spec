@@ -76,7 +76,6 @@ fi
 %{_datadir}/pixmaps/%{name}.svg
 
 %changelog
-<<<<<<< HEAD
 * Wed Jan 31 2018 Martin Gansser <martinkg@fedoraproject.org> - 5.0.5-2
 - Add OpenGL_fix.patch
 
