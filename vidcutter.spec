@@ -14,7 +14,6 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 BuildRequires:  mpv-libs-devel
 BuildRequires:  desktop-file-utils
-
 Requires:       python3-qt5
 Requires:       ffmpeg
 Requires:       python3-pyopengl
