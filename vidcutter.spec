@@ -7,6 +7,8 @@ Summary:        The simplest + fastest video cutter & joiner
 License:        GPLv3+
 Url:            http://vidcutter.ozmartians.com
 Source0:        https://github.com/ozmartian/%{name}/archive/%{version}.tar.gz#/%{name}-%{version}.tar.gz
+# https://github.com/UnitedRPMs/vidcutter/blob/master/OpenGL_fix.patch
+Patch0:         OpenGL_fix.patch
 
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
@@ -18,7 +20,6 @@ Requires:       ffmpeg
 Requires:       python3-pyopengl
 Requires:       mediainfo
 Requires:       hicolor-icon-theme
-Requires:       mpv-libs
 
 %description
 The simplest & sexiest tool for cutting and joining your videos without the
@@ -27,6 +28,7 @@ the job done using tried and true tech in its arsenal via mpv and FFmpeg.
 
 %prep
 %setup -q
+%patch0 -p1
 sed -i "s/pypi/rpm/" vidcutter/__init__.py
 # Fix error: Empty %%files file debugsourcefiles.list
 sed -i "s/-g0/-g/" setup.py
@@ -75,8 +77,8 @@ fi
 %{_datadir}/pixmaps/%{name}.svg
 
 %changelog
-* Mon Jan 29 2018 Martin Gansser <martinkg@fedoraproject.org> - 5.0.5-2
-- Add RR mpv-libs
+* Wed Jan 31 2018 Martin Gansser <martinkg@fedoraproject.org> - 5.0.5-2
+- Add OpenGL_fix.patch
 
 * Sun Dec 03 2017 Martin Gansser <martinkg@fedoraproject.org> - 5.0.5-1
 - Update to 5.0.5
