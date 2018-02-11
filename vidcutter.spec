@@ -2,7 +2,7 @@
 
 Name:           vidcutter
 Version:        5.5.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        The simplest + fastest video cutter & joiner
 License:        GPLv3+
 Url:            http://vidcutter.ozmartians.com
@@ -12,6 +12,7 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 BuildRequires:  mpv-libs-devel
 BuildRequires:  desktop-file-utils
+BuildRequires:  libappstream-glib
 
 Requires:       python3-qt5
 Requires:       ffmpeg
@@ -47,19 +48,7 @@ done
 
 %check
 desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
-
-%post
-touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
-
-%postun
-/sbin/ldconfig
-if [ $1 -eq 0 ] ; then
-  touch --no-create %{_datadir}/icons/hicolor &>/dev/null
-  /usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
-fi
-
-%posttrans
-/usr/bin/gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
+appstream-util validate-relax --nonet %{buildroot}%{_datadir}/{appdata,metainfo}/*.appdata.xml
 
 %files
 %license LICENSE
@@ -77,6 +66,10 @@ fi
 %{_datadir}/pixmaps/%{name}.svg
 
 %changelog
+* Sun Feb 11 2018 Leigh Scott <leigh123linux@googlemail.com> - 5.5.0-2
+- Vailidate appdata
+- Remove scriptlets
+
 * Tue Feb 06 2018 Martin Gansser <martinkg@fedoraproject.org> - 5.5.0-1
 - Update to 5.5.0
 - Dropped OpenGL_fix.patch
