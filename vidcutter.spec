@@ -2,7 +2,7 @@
 
 Name:           vidcutter
 Version:        5.5.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        The simplest + fastest video cutter & joiner
 License:        GPLv3+
 Url:            http://vidcutter.ozmartians.com
@@ -66,6 +66,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/{appdata,metainfo}
 %{_datadir}/pixmaps/%{name}.svg
 
 %changelog
+* Thu Mar 01 2018 RPM Fusion Release Engineering <leigh123linux@googlemail.com> - 5.5.0-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
+
 * Sun Feb 11 2018 Leigh Scott <leigh123linux@googlemail.com> - 5.5.0-2
 - Vailidate appdata
 - Remove scriptlets
