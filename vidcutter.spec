@@ -1,8 +1,9 @@
 %global unique_name com.ozmartians
+%global rname VidCutter
 
 Name:           vidcutter
-Version:        5.5.0
-Release:        3%{?dist}
+Version:        6.0.0
+Release:        1%{?dist}
 Summary:        The simplest + fastest video cutter & joiner
 License:        GPLv3+
 Url:            http://vidcutter.ozmartians.com
@@ -42,30 +43,32 @@ sed -i -e 's|#!/usr/bin/env python3|#!/usr/bin/python3|g' vidcutter/libs/*.py
 %install
 %py3_install
 # E: non-executable-script
-for file in %{buildroot}%{python3_sitearch}/vidcutter/{__init__,__main__,about,graphicseffects,mediainfo,mediastream,settings,updater,videoconsole,videocutter,videolist,videoslider,videosliderwidget,videostyle,libs/config,libs/mpvwidget,libs/munch,libs/notifications,libs/singleapplication,libs/taskbarprogress,libs/videoservice,libs/widgets}.py; do
+for file in %{buildroot}%{python3_sitearch}/vidcutter/{__init__,__main__,about,changelog,mediainfo,mediastream,settings,updater,videoconsole,videocutter,videolist,videoslider,videosliderwidget,videostyle,libs/ffmetadata,libs/graphicseffects,libs/config,libs/mpvwidget,libs/munch,libs/notifications,libs/singleapplication,libs/taskbarprogress,libs/videoservice,libs/widgets}.py; do
     chmod a+x $file
 done
 
+rm -f %{buildroot}%{_datadir}/doc/vidcutter/LICENSE
+
 %check
 desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
-appstream-util validate-relax --nonet %{buildroot}%{_datadir}/{appdata,metainfo}/*.appdata.xml
+appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/*.appdata.xml
 
 %files
 %license LICENSE
-%doc README.md
+%doc README.md CHANGELOG
 %{_bindir}/%{name}
 %{python3_sitearch}/%{name}
 %{python3_sitearch}/vidcutter-*-py?.?.egg-info
-%{_datadir}/applications/%{unique_name}.%{name}.desktop
-%{_datadir}/icons/hicolor/*/apps/%{name}.png
-%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
-%{_datadir}/mime/packages/x-vidcutter.xml
-%{_datadir}/mime/packages/wtv.xml
-%{_datadir}/appdata/%{unique_name}.%{name}.appdata.xml
-%{_datadir}/metainfo/%{unique_name}.%{name}.appdata.xml
-%{_datadir}/pixmaps/%{name}.svg
+%{_datadir}/applications/%{unique_name}.%{rname}.desktop
+%{_datadir}/icons/hicolor/*/apps/%{unique_name}.%{rname}.png
+%{_datadir}/icons/hicolor/scalable/apps/%{unique_name}.%{rname}.svg
+%{_datadir}/metainfo/%{unique_name}.%{rname}.appdata.xml
+%{_datadir}/mime/packages/%{unique_name}.%{rname}.xml
 
 %changelog
+* Fri Jun 29 2018 Martin Gansser <martinkg@fedoraproject.org> - 6.0.0-1
+- Update to 6.0.0
+
 * Thu Mar 01 2018 RPM Fusion Release Engineering <leigh123linux@googlemail.com> - 5.5.0-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
 
