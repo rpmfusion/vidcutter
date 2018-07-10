@@ -3,7 +3,7 @@
 
 Name:           vidcutter
 Version:        6.0.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        The simplest + fastest video cutter & joiner
 License:        GPLv3+
 Url:            http://vidcutter.ozmartians.com
@@ -66,6 +66,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/*.appdata
 %{_datadir}/mime/packages/%{unique_name}.%{rname}.xml
 
 %changelog
+* Tue Jul 10 2018 Miro Hrončok <mhroncok@redhat.com> - 6.0.0-2
+- Rebuilt for Python 3.7
+
 * Fri Jun 29 2018 Martin Gansser <martinkg@fedoraproject.org> - 6.0.0-1
 - Update to 6.0.0
 
