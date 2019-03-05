@@ -9,6 +9,7 @@ License:        GPLv3+
 Url:            http://vidcutter.ozmartians.com
 Source0:        https://github.com/ozmartian/%{name}/archive/%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
+BuildRequires:  gcc
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 BuildRequires:  mpv-libs-devel
