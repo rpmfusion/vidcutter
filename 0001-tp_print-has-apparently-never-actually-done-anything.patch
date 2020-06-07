@@ -1,0 +1,98 @@
+From cf4831caabc2275fd7a9346b2385c5d68eb8e15a Mon Sep 17 00:00:00 2001
+From: Leigh Scott <leigh123linux@gmail.com>
+Date: Sun, 7 Jun 2020 16:29:28 +0100
+Subject: [PATCH] tp_print has apparently never actually done anything in the
+ Python 3 series
+
+---
+ vidcutter/libs/pympv/mpv.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+diff --git a/vidcutter/libs/pympv/mpv.c b/vidcutter/libs/pympv/mpv.c
+index 3bfdfb2..7d865a5 100644
+--- a/vidcutter/libs/pympv/mpv.c
++++ b/vidcutter/libs/pympv/mpv.c
+@@ -23783,7 +23783,9 @@
+   __pyx_vtabptr_9vidcutter_4libs_3mpv_EndOfFileReached = &__pyx_vtable_9vidcutter_4libs_3mpv_EndOfFileReached;
+   __pyx_vtable_9vidcutter_4libs_3mpv_EndOfFileReached._init = (PyObject *(*)(struct __pyx_obj_9vidcutter_4libs_3mpv_EndOfFileReached *, struct mpv_event_end_file *))__pyx_f_9vidcutter_4libs_3mpv_16EndOfFileReached__init;
+   if (PyType_Ready(&__pyx_type_9vidcutter_4libs_3mpv_EndOfFileReached) < 0) __PYX_ERR(0, 449, __pyx_L1_error)
++#if PY_MAJOR_VERSION < 3
+   __pyx_type_9vidcutter_4libs_3mpv_EndOfFileReached.tp_print = 0;
++#endif
+   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_9vidcutter_4libs_3mpv_EndOfFileReached.tp_dictoffset && __pyx_type_9vidcutter_4libs_3mpv_EndOfFileReached.tp_getattro == PyObject_GenericGetAttr)) {
+     __pyx_type_9vidcutter_4libs_3mpv_EndOfFileReached.tp_getattro = __Pyx_PyObject_GenericGetAttr;
+   }
+@@ -23794,7 +23796,9 @@
+   __pyx_vtabptr_9vidcutter_4libs_3mpv_InputDispatch = &__pyx_vtable_9vidcutter_4libs_3mpv_InputDispatch;
+   __pyx_vtable_9vidcutter_4libs_3mpv_InputDispatch._init = (PyObject *(*)(struct __pyx_obj_9vidcutter_4libs_3mpv_InputDispatch *, struct mpv_event_script_input_dispatch *))__pyx_f_9vidcutter_4libs_3mpv_13InputDispatch__init;
+   if (PyType_Ready(&__pyx_type_9vidcutter_4libs_3mpv_InputDispatch) < 0) __PYX_ERR(0, 462, __pyx_L1_error)
++#if PY_MAJOR_VERSION < 3
+   __pyx_type_9vidcutter_4libs_3mpv_InputDispatch.tp_print = 0;
++#endif
+   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_9vidcutter_4libs_3mpv_InputDispatch.tp_dictoffset && __pyx_type_9vidcutter_4libs_3mpv_InputDispatch.tp_getattro == PyObject_GenericGetAttr)) {
+     __pyx_type_9vidcutter_4libs_3mpv_InputDispatch.tp_getattro = __Pyx_PyObject_GenericGetAttr;
+   }
+@@ -23805,7 +23809,9 @@
+   __pyx_vtabptr_9vidcutter_4libs_3mpv_LogMessage = &__pyx_vtable_9vidcutter_4libs_3mpv_LogMessage;
+   __pyx_vtable_9vidcutter_4libs_3mpv_LogMessage._init = (PyObject *(*)(struct __pyx_obj_9vidcutter_4libs_3mpv_LogMessage *, struct mpv_event_log_message *))__pyx_f_9vidcutter_4libs_3mpv_10LogMessage__init;
+   if (PyType_Ready(&__pyx_type_9vidcutter_4libs_3mpv_LogMessage) < 0) __PYX_ERR(0, 475, __pyx_L1_error)
++#if PY_MAJOR_VERSION < 3
+   __pyx_type_9vidcutter_4libs_3mpv_LogMessage.tp_print = 0;
++#endif
+   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_9vidcutter_4libs_3mpv_LogMessage.tp_dictoffset && __pyx_type_9vidcutter_4libs_3mpv_LogMessage.tp_getattro == PyObject_GenericGetAttr)) {
+     __pyx_type_9vidcutter_4libs_3mpv_LogMessage.tp_getattro = __Pyx_PyObject_GenericGetAttr;
+   }
+@@ -23816,7 +23822,9 @@
+   __pyx_vtabptr_9vidcutter_4libs_3mpv_Property = &__pyx_vtable_9vidcutter_4libs_3mpv_Property;
+   __pyx_vtable_9vidcutter_4libs_3mpv_Property._init = (PyObject *(*)(struct __pyx_obj_9vidcutter_4libs_3mpv_Property *, struct mpv_event_property *))__pyx_f_9vidcutter_4libs_3mpv_8Property__init;
+   if (PyType_Ready(&__pyx_type_9vidcutter_4libs_3mpv_Property) < 0) __PYX_ERR(0, 536, __pyx_L1_error)
++#if PY_MAJOR_VERSION < 3
+   __pyx_type_9vidcutter_4libs_3mpv_Property.tp_print = 0;
++#endif
+   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_9vidcutter_4libs_3mpv_Property.tp_dictoffset && __pyx_type_9vidcutter_4libs_3mpv_Property.tp_getattro == PyObject_GenericGetAttr)) {
+     __pyx_type_9vidcutter_4libs_3mpv_Property.tp_getattro = __Pyx_PyObject_GenericGetAttr;
+   }
+@@ -23828,7 +23836,9 @@
+   __pyx_vtable_9vidcutter_4libs_3mpv_Event._data = (PyObject *(*)(struct __pyx_obj_9vidcutter_4libs_3mpv_Event *, struct mpv_event *))__pyx_f_9vidcutter_4libs_3mpv_5Event__data;
+   __pyx_vtable_9vidcutter_4libs_3mpv_Event._init = (PyObject *(*)(struct __pyx_obj_9vidcutter_4libs_3mpv_Event *, struct mpv_event *, PyObject *))__pyx_f_9vidcutter_4libs_3mpv_5Event__init;
+   if (PyType_Ready(&__pyx_type_9vidcutter_4libs_3mpv_Event) < 0) __PYX_ERR(0, 549, __pyx_L1_error)
++#if PY_MAJOR_VERSION < 3
+   __pyx_type_9vidcutter_4libs_3mpv_Event.tp_print = 0;
++#endif
+   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_9vidcutter_4libs_3mpv_Event.tp_dictoffset && __pyx_type_9vidcutter_4libs_3mpv_Event.tp_getattro == PyObject_GenericGetAttr)) {
+     __pyx_type_9vidcutter_4libs_3mpv_Event.tp_getattro = __Pyx_PyObject_GenericGetAttr;
+   }
+@@ -23842,7 +23852,9 @@
+   __pyx_vtable_9vidcutter_4libs_3mpv_Context._prep_native_value = (struct mpv_node (*)(struct __pyx_obj_9vidcutter_4libs_3mpv_Context *, PyObject *, PyObject *))__pyx_f_9vidcutter_4libs_3mpv_7Context__prep_native_value;
+   __pyx_vtable_9vidcutter_4libs_3mpv_Context._free_native_value = (PyObject *(*)(struct __pyx_obj_9vidcutter_4libs_3mpv_Context *, struct mpv_node))__pyx_f_9vidcutter_4libs_3mpv_7Context__free_native_value;
+   if (PyType_Ready(&__pyx_type_9vidcutter_4libs_3mpv_Context) < 0) __PYX_ERR(0, 649, __pyx_L1_error)
++#if PY_MAJOR_VERSION < 3
+   __pyx_type_9vidcutter_4libs_3mpv_Context.tp_print = 0;
++#endif
+   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_9vidcutter_4libs_3mpv_Context.tp_dictoffset && __pyx_type_9vidcutter_4libs_3mpv_Context.tp_getattro == PyObject_GenericGetAttr)) {
+     __pyx_type_9vidcutter_4libs_3mpv_Context.tp_getattro = __Pyx_PyObject_GenericGetAttr;
+   }
+@@ -23851,7 +23863,9 @@
+   if (__Pyx_setup_reduce((PyObject*)&__pyx_type_9vidcutter_4libs_3mpv_Context) < 0) __PYX_ERR(0, 649, __pyx_L1_error)
+   __pyx_ptype_9vidcutter_4libs_3mpv_Context = &__pyx_type_9vidcutter_4libs_3mpv_Context;
+   if (PyType_Ready(&__pyx_type_9vidcutter_4libs_3mpv_OpenGLContext) < 0) __PYX_ERR(0, 1110, __pyx_L1_error)
++#if PY_MAJOR_VERSION < 3
+   __pyx_type_9vidcutter_4libs_3mpv_OpenGLContext.tp_print = 0;
++#endif
+   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_9vidcutter_4libs_3mpv_OpenGLContext.tp_dictoffset && __pyx_type_9vidcutter_4libs_3mpv_OpenGLContext.tp_getattro == PyObject_GenericGetAttr)) {
+     __pyx_type_9vidcutter_4libs_3mpv_OpenGLContext.tp_getattro = __Pyx_PyObject_GenericGetAttr;
+   }
+@@ -23859,7 +23873,9 @@
+   if (__Pyx_setup_reduce((PyObject*)&__pyx_type_9vidcutter_4libs_3mpv_OpenGLContext) < 0) __PYX_ERR(0, 1110, __pyx_L1_error)
+   __pyx_ptype_9vidcutter_4libs_3mpv_OpenGLContext = &__pyx_type_9vidcutter_4libs_3mpv_OpenGLContext;
+   if (PyType_Ready(&__pyx_type_9vidcutter_4libs_3mpv___pyx_scope_struct___errors) < 0) __PYX_ERR(0, 611, __pyx_L1_error)
++#if PY_MAJOR_VERSION < 3
+   __pyx_type_9vidcutter_4libs_3mpv___pyx_scope_struct___errors.tp_print = 0;
++#endif
+   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_9vidcutter_4libs_3mpv___pyx_scope_struct___errors.tp_dictoffset && __pyx_type_9vidcutter_4libs_3mpv___pyx_scope_struct___errors.tp_getattro == PyObject_GenericGetAttr)) {
+     __pyx_type_9vidcutter_4libs_3mpv___pyx_scope_struct___errors.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
+   }
+
+-- 
+2.26.2
+

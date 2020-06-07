@@ -6,8 +6,9 @@ Version:        6.0.0
 Release:        9%{?dist}
 Summary:        The simplest + fastest video cutter & joiner
 License:        GPLv3+
-Url:            http://vidcutter.ozmartians.com
-Source0:        https://github.com/ozmartian/%{name}/archive/%{version}.tar.gz#/%{name}-%{version}.tar.gz
+URL:            http://vidcutter.ozmartians.com
+Source0:        https://github.com/ozmartian/%{name}/archive/%{version}/%{name}-%{version}.tar.gz
+Patch0:         0001-tp_print-has-apparently-never-actually-done-anything.patch
 
 BuildRequires:  gcc
 BuildRequires:  python3-devel
@@ -29,7 +30,7 @@ need for re-encoding or a diploma in multimedia. VidCutter focuses on getting
 the job done using tried and true tech in its arsenal via mpv and FFmpeg.
 
 %prep
-%setup -q
+%autosetup -p1
 sed -i "s/pypi/rpm/" vidcutter/__init__.py
 # Fix error: Empty %%files file debugsourcefiles.list
 sed -i "s/-g0/-g/" setup.py
